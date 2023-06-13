@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TaskServiceImplementation implements TaskService{
@@ -20,5 +21,10 @@ public class TaskServiceImplementation implements TaskService{
     @Override
     public List<Task> getAllTasks() {
         return taskRepository.findAll();
+    }
+
+    @Override
+    public Optional<Task> findByTaskNumber(int taskNumber) {
+        return taskRepository.findTaskByTaskNumber(taskNumber);
     }
 }
