@@ -66,7 +66,7 @@ public class Task {
 
     /**
      * Method to assign the Task to a specified employee
-     * @param empId the id of the resorce
+     * @param empId the id of the resource
      */
     public void assignToEmployee(int empId) {
         this.empId = empId;
