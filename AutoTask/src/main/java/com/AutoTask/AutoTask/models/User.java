@@ -12,11 +12,11 @@ public class User implements Serializable {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int employeeId;
+    private String name;
     private String email;
     private String password;
     private String phoneNum;
-    private String name;
-    //private Schedule schedule;
+//    private Schedule schedule;
     private int deskSkill;
     private int dataSkill;
     private int netSkill;
@@ -25,25 +25,18 @@ public class User implements Serializable {
 
     public User(){
     }
-    public User(int employeeId, String password) {
-        this.employeeId = employeeId;
-        this.password = password;
-    }
 
-    public User(int employeeId, String email, String password, String phoneNum, String name) {
-        this.employeeId = employeeId;
+    public User(String name, String email, String password, String phoneNum) {
         this.email = email;
         this.password = password;
         this.phoneNum = phoneNum;
         this.role = 1;
-        this.name=name;
     }
-    public User(int id, String email, String password, String phoneNum, String name, int deskSkill, int dataSkill, int netSkill, int mobileSkill) {
-        this.employeeId = id;
+    public User(String name, String email, String password, String phoneNum, int deskSkill, int dataSkill, int netSkill, int mobileSkill) {
+        this.name = name;
         this.email = email;
         this.password = password;
         this.phoneNum = phoneNum;
-        this.name = name;
         this.deskSkill = deskSkill;
         this.dataSkill = dataSkill;
         this.netSkill = netSkill;
@@ -55,8 +48,12 @@ public class User implements Serializable {
         return employeeId;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
     public String getEmail() {
@@ -83,15 +80,10 @@ public class User implements Serializable {
         this.phoneNum = phoneNum;
     }
 
-    public String getName(){ return this.name; }
-
-    public void setName(String name){this.name = name; }
-
-
 //    public Schedule getSchedule() {
 //        return schedule;
 //    }
-
+//
 //    public void setSchedule(Schedule schedule) {
 //        this.schedule = schedule;
 //    }

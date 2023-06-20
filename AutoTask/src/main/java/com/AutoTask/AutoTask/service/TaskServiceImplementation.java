@@ -20,7 +20,7 @@ public class TaskServiceImplementation implements TaskService{
 
     /**
      * Method to provide a list of all tasks
-     * @return
+     * @return A list object the contains all the objects in
      */
     @Override
     public List<Task> getAllTasks() {
