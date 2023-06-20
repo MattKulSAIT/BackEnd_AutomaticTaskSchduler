@@ -24,6 +24,23 @@ public class UserServiceImplementation implements UserService{
         return this.userRepository.findAll();
     }
 
+    /**
+     * Method to let you get a user by there ID
+     * @param empId the Unique Id used to indentify them
+     * @return an Optional<User> if the user is found
+     */
+    @Override
+    public Optional<User> findById(int empId) {
+        return userRepository.findUserByEmpId(empId);
+    }
+
+    /**
+     * Method to log a user in
+     * @param id the Unique Id using to identify users in the system
+     * @param password the password linked with the ID
+     * @return A user if the username and passwork match
+     * @throws Exception
+     */
     @Override
     public User login(int id, String password) throws Exception{
         Optional<User> loginUser = this.userRepository.findUserByEmpId(id);

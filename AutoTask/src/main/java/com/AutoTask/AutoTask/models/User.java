@@ -15,6 +15,7 @@ public class User implements Serializable {
     private String email;
     private String password;
     private String phoneNum;
+    private String name;
     //private Schedule schedule;
     private int deskSkill;
     private int dataSkill;
@@ -29,18 +30,20 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public User(int employeeId, String email, String password, String phoneNum) {
+    public User(int employeeId, String email, String password, String phoneNum, String name) {
         this.employeeId = employeeId;
         this.email = email;
         this.password = password;
         this.phoneNum = phoneNum;
         this.role = 1;
+        this.name=name;
     }
-    public User(int id, String email, String password, String phoneNum, int deskSkill, int dataSkill, int netSkill, int mobileSkill) {
+    public User(int id, String email, String password, String phoneNum, String name, int deskSkill, int dataSkill, int netSkill, int mobileSkill) {
         this.employeeId = id;
         this.email = email;
         this.password = password;
         this.phoneNum = phoneNum;
+        this.name = name;
         this.deskSkill = deskSkill;
         this.dataSkill = dataSkill;
         this.netSkill = netSkill;
@@ -79,6 +82,11 @@ public class User implements Serializable {
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
+
+    public String getName(){ return this.name; }
+
+    public void setName(String name){this.name = name; }
+
 
 //    public Schedule getSchedule() {
 //        return schedule;

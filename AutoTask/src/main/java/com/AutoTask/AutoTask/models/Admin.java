@@ -10,8 +10,8 @@ public class Admin extends User implements Serializable {
     private String phoneNum;
     private int role;
 
-    public Admin(int id, String email, String password, String phoneNum) {
-        super(id, email, password, phoneNum);
+    public Admin(int id, String email, String password, String phoneNum, String name) {
+        super(id, email, password, phoneNum, name);
         this.role = 1;
     }
 
