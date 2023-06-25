@@ -10,4 +10,6 @@ public interface TaskService {
     public List<Task> getAllTasks();
 
     public Optional<Task> findByTaskNumber(int taskNumber);
+
+    public void resourceUpdateTask(int id, int status, int type, double time);
 }
