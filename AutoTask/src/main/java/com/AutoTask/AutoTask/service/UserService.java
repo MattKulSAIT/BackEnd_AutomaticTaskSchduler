@@ -15,4 +15,6 @@ public interface UserService {
 
     public Optional<User>findById(int empId);
     public User login(int id, String password) throws Exception;
+
+    public int numOfTasks(int empId);
 }

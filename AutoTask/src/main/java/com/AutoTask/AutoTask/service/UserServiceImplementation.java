@@ -64,4 +64,16 @@ public class UserServiceImplementation implements UserService{
         }
         return null;
     }
+
+    /**
+     * Method to get the Number of Tasks for an employee for the
+     * ResourceGeneralView
+     * @param empId the unquie ID used to indetify everyone in the system
+     * @return An int counting the number of tasks
+     */
+    @Override
+    public int numOfTasks(int empId) {
+        return userRepository.numOfTasks(empId);
+    }
+
 }

@@ -4,10 +4,7 @@ package com.AutoTask.AutoTask.controller;
 import com.AutoTask.AutoTask.models.User;
 import com.AutoTask.AutoTask.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +24,10 @@ public class GeneralResourceViewController {
     @GetMapping("/A")
     public List<User> getAllAdmin(){
         return userService.getAllAdmin();
+    }
+
+    @GetMapping("{empId}")
+    public int getNumberOfTasks(@PathVariable int empId){
+        return userService.numOfTasks(empId);
     }
 }

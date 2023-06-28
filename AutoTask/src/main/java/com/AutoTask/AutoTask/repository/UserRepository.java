@@ -18,4 +18,7 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 
     @Query("SELECT s FROM User s WHERE s.role = 1")
     List<User> getAllAdmin();
+
+    @Query("SELECT COUNT(t.taskNumber) FROM Task t WHERE t.empId = :empId")
+    int numOfTasks(int empId);
 }
