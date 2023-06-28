@@ -61,9 +61,4 @@ public class Admin extends User implements Serializable {
         return 0;
     }
 
-    public User newResource(int id, int deskSkill, int dataSkill, int netSkill,
-                                int mobileSkill, String email, String phoneNum, String password, Schedule schedule) {
-        Resource res = new Resource(id, deskSkill, dataSkill, netSkill, mobileSkill, email, phoneNum, password, schedule);
-        return res;
-    }
 }
