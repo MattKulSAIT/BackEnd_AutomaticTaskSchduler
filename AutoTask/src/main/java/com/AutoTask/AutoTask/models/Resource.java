@@ -3,20 +3,20 @@ package com.AutoTask.AutoTask.models;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Resource extends User implements Serializable {
+public class Resource implements Serializable {
     private Task task;
     private String email;
     private String password;
-    private final int employeeID;
+    private int employeeID;
     private String phoneNum;
     private Schedule schedule;
-    private int deskSkill;
-    private int dataSkill;
-    private int netSkill;
-    private int mobileSkill;
+    private boolean deskSkill;
+    private boolean dataSkill;
+    private boolean netSkill;
+    private boolean mobileSkill;
     private int role;
 
-    public Resource(int id, int deskSkill , int dataSkill, int netSkill, int mobileSkill,
+    public Resource(int id, boolean deskSkill , boolean dataSkill, boolean netSkill, boolean mobileSkill,
                     String email, String phoneNum, String password, Schedule schedule) {
         this.employeeID = id;
         this.deskSkill = deskSkill;
@@ -38,22 +38,18 @@ public class Resource extends User implements Serializable {
         this.task = task;
     }
 
-
-    @Override public String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-
-    @Override public void setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    @Override
     public String getPassword() {
         return password;
     }
 
-    @Override
     public void setPassword(String password) {
         this.password = password;
     }
@@ -62,14 +58,8 @@ public class Resource extends User implements Serializable {
         return employeeID;
     }
 
-    @Override
-    public String getPhoneNum() {
-        return phoneNum;
-    }
-
-    @Override
-    public void setPhoneNum(String phoneNum) {
-        this.phoneNum = phoneNum;
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
     }
 
     public Schedule getSchedule() {
@@ -80,35 +70,35 @@ public class Resource extends User implements Serializable {
         this.schedule = schedule;
     }
 
-    public int hasDeskSkill() {
+    public boolean hasDeskSkill() {
         return deskSkill;
     }
 
-    public void setDeskSkill(int deskSkill) {
+    public void setDeskSkill(boolean deskSkill) {
         this.deskSkill = deskSkill;
     }
 
-    public int hasDataSkill() {
+    public boolean hasDataSkill() {
         return dataSkill;
     }
 
-    public void setDataSkill(int dataSkill) {
+    public void setDataSkill(boolean dataSkill) {
         this.dataSkill = dataSkill;
     }
 
-    public int hasNetSkill() {
+    public boolean hasNetSkill() {
         return netSkill;
     }
 
-    public void setNetSkill(int netSkill) {
+    public void setNetSkill(boolean netSkill) {
         this.netSkill = netSkill;
     }
 
-    public int hasMobileSkill() {
+    public boolean hasMobileSkill() {
         return mobileSkill;
     }
 
-    public void setMobileSkill(int mobileSkill) {
+    public void setMobileSkill(boolean mobileSkill) {
         this.mobileSkill = mobileSkill;
     }
 

@@ -16,7 +16,7 @@ public class User implements Serializable {
     private String email;
     private String password;
     private String phoneNum;
-    //private Schedule schedule;
+//    private Schedule schedule;
     private int deskSkill;
     private int dataSkill;
     private int netSkill;
