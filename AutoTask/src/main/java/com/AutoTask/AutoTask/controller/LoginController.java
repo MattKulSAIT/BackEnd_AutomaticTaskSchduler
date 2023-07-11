@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.*;
 public class LoginController {
     @Autowired
     UserService us;
+
     @PostMapping("")
-    public ResponseEntity<String> login(@RequestParam("employeeId") int employeeId, @RequestParam("password") String password) throws Exception {
+    public ResponseEntity<User> login(@RequestParam("employeeId") int employeeId, @RequestParam("password") String password) throws Exception {
         User user = us.login(employeeId, password);
         if (user == null) {
-            return ResponseEntity.ok("User Not Found");
+            return ResponseEntity.ok(null);
         }
-        return ResponseEntity.ok("Login Successful");
+        return ResponseEntity.ok(user);
     }
 }

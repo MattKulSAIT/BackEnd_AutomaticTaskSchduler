@@ -21,9 +21,9 @@ public class EditResourceController {
         return us.findById(id);
     }
 
-    @PatchMapping(path = "{id}")
-    public ResponseEntity<String> editResource(@PathVariable int id, @RequestBody User editedResource) {
-        us.updateUser(id, editedResource);
+    @PatchMapping(path = "{employeeId}")
+    public ResponseEntity<String> editResource(@PathVariable int employeeId, @RequestBody User editedResource) {
+        us.updateUser(employeeId, editedResource);
         return ResponseEntity.ok("Resourced edited successfully");
     }
 

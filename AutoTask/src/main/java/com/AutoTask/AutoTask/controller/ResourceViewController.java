@@ -15,8 +15,8 @@ public class ResourceViewController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(path = "{empId}")
-    public Optional<User> viewSelectedResource(@PathVariable int empId){
-        return userService.findById(empId);
+    @GetMapping(path = "{id}")
+    public Optional<User> viewSelectedResource(@PathVariable int id){
+        return userService.findById(id);
     }
 }

@@ -29,14 +29,18 @@ public class UserServiceImplementation implements UserService{
      * @return
      */
     @Override
-    public List<User> getAllResource(){return this.userRepository.getAllResource();}
+    public List<User> getAllResource(){
+        return this.userRepository.getAllResource();
+    }
 
     /**
      * Returns a list of all the Users with role id 1
      * @return
      */
     @Override
-    public List<User> getAllAdmin(){return this.userRepository.getAllAdmin();}
+    public List<User> getAllAdmin(){
+        return this.userRepository.getAllAdmin();
+    }
 
     /**
      * Method to let you get a user by there ID
