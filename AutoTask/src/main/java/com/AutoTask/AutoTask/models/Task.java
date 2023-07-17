@@ -18,7 +18,7 @@ public class Task {
     private String description;
     private String name;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
     private int status;
     private double timeToComplete;
     private int category; //Kinda want to change this
@@ -30,7 +30,7 @@ public class Task {
     }
     public Task(String title, String description,
                 String fName, String lName, String email,
-                int phoneNumber,int category) {
+                String phoneNumber,int category) {
         this.title=title;
         this.description = description;
         this.name = fName + " " + lName;
@@ -159,14 +159,14 @@ public class Task {
     /**
      * @return the phoneNumber
      */
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
     /**
      * @param phoneNumber the phoneNumber to set
      */
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

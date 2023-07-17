@@ -10,13 +10,13 @@ public class Resource implements Serializable {
     private int employeeID;
     private String phoneNum;
     private Schedule schedule;
-    private boolean deskSkill;
-    private boolean dataSkill;
-    private boolean netSkill;
-    private boolean mobileSkill;
+    private int deskSkill;
+    private int dataSkill;
+    private int netSkill;
+    private int mobileSkill;
     private int role;
 
-    public Resource(int id, boolean deskSkill , boolean dataSkill, boolean netSkill, boolean mobileSkill,
+    public Resource(int id, int deskSkill , int dataSkill, int netSkill, int mobileSkill,
                     String email, String phoneNum, String password, Schedule schedule) {
         this.employeeID = id;
         this.deskSkill = deskSkill;
@@ -70,35 +70,35 @@ public class Resource implements Serializable {
         this.schedule = schedule;
     }
 
-    public boolean hasDeskSkill() {
+    public int hasDeskSkill() {
         return deskSkill;
     }
 
-    public void setDeskSkill(boolean deskSkill) {
+    public void setDeskSkill(int deskSkill) {
         this.deskSkill = deskSkill;
     }
 
-    public boolean hasDataSkill() {
+    public int hasDataSkill() {
         return dataSkill;
     }
 
-    public void setDataSkill(boolean dataSkill) {
+    public void setDataSkill(int dataSkill) {
         this.dataSkill = dataSkill;
     }
 
-    public boolean hasNetSkill() {
+    public int hasNetSkill() {
         return netSkill;
     }
 
-    public void setNetSkill(boolean netSkill) {
+    public void setNetSkill(int netSkill) {
         this.netSkill = netSkill;
     }
 
-    public boolean hasMobileSkill() {
+    public int hasMobileSkill() {
         return mobileSkill;
     }
 
-    public void setMobileSkill(boolean mobileSkill) {
+    public void setMobileSkill(int mobileSkill) {
         this.mobileSkill = mobileSkill;
     }
 

@@ -8,11 +8,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Class to handle any interactions with Task objects
+ */
 @Service
 public class TaskServiceImplementation implements TaskService{
     @Autowired
     private TaskRepository taskRepository;
 
+    /**
+     * Method to save the task to the database
+     * @param task the updated task to be saved
+     * @return the fixed task object
+     */
     @Override
     public Task saveTask(Task task) {
         return taskRepository.save(task);
@@ -37,7 +45,13 @@ public class TaskServiceImplementation implements TaskService{
         return taskRepository.findTaskByTaskNumber(taskNumber);
     }
 
-
+    /**
+     * The method for resources to update a tasks information
+     * @param id the unique id for the task
+     * @param status the current completion status of the task
+     * @param type the category of the task
+     * @param time the estimated time to complete
+     */
     @Override
     public void resourceUpdateTask(int id, int status, int type, double time) {
         Optional<Task> optionalTask = findByTaskNumber(id);
@@ -51,6 +65,29 @@ public class TaskServiceImplementation implements TaskService{
             saveTask(task);
         }
 
+    }
+
+    /**
+     * Method for Admin to update a task
+     * @param id the unique id given to every task
+     * @param status the current completion status of the task
+     * @param type the category of the task
+     * @param time the estimated time to complete
+     * @param empId the unique id given to every user
+     */
+    @Override
+    public void adminUpdateTask(int id, int status, int type, double time, int empId) {
+        Optional<Task> optionalTask = findByTaskNumber(id);
+        if(optionalTask.isPresent()){
+            Task task = optionalTask.get();
+
+            task.setStatus(status);
+            task.setCategory(type);
+            task.setTimeToComplete(time);
+            task.setEmpId(empId);
+
+            saveTask(task);
+        }
     }
 
 

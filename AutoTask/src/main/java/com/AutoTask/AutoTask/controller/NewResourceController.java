@@ -6,26 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Class to control the CreateNewUser page on the frontend
+ */
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/newResource")
 public class NewResourceController {
 
+    /**
+     * Autowire to let us access UserService
+     */
     @Autowired
     UserService us;
+
+    /**
+     * method to take in a newResource object
+     * @param newResource the User object to be added to our system
+     * @return ResponceEntity if the Resource was created succesfully
+     */
     @PostMapping("")
-    public ResponseEntity<String> newResource(@RequestParam("fName") String fName,
-                                              @RequestParam("lName") String lName,
-                                              @RequestParam("email") String email,
-                                              @RequestParam("password") String password,
-                                              @RequestParam("phoneNum") String phoneNum,
-                                              @RequestParam("desk") int deskSkill,
-                                              @RequestParam("data") int dataSkill,
-                                              @RequestParam("net") int netSkill,
-                                              @RequestParam("mobile") int mobileSkill) {
-        String name = fName + " " + lName;
-        User user = new User(name, email, password, phoneNum, deskSkill, dataSkill, netSkill, mobileSkill);
-        us.saveUser(user);
+    public ResponseEntity<String> newResource(@RequestBody User newResource) {
+        us.saveUser(newResource);
         return ResponseEntity.ok("Resource created successfully");
     }
 }

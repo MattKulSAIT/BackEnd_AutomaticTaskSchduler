@@ -12,4 +12,6 @@ public interface TaskService {
     public Optional<Task> findByTaskNumber(int taskNumber);
 
     public void resourceUpdateTask(int id, int status, int type, double time);
+
+    public void adminUpdateTask(int id, int status, int type, double time, int empId);
 }

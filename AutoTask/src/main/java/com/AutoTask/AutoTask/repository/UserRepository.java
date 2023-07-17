@@ -21,4 +21,16 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 
     @Query("SELECT COUNT(t.taskNumber) FROM Task t WHERE t.empId = :empId")
     int numOfTasks(int empId);
+
+    @Query("SELECT u FROM User u WHERE u.deskSkill = 1 AND u.role = 2")
+    List<User> findDeskSideCapableResource();
+
+    @Query("SELECT u FROM User u WHERE u.dataSkill = 1 AND u.role = 2")
+    List<User> findDatabaseCapableResource();
+
+    @Query("SELECT u FROM User u WHERE u.netSkill = 1 AND u.role = 2")
+    List<User> findNetworkCapableResource();
+
+    @Query("SELECT u FROM User u WHERE u.mobileSkill = 1 AND u.role = 2")
+    List<User> findMobileCapableResource();
 }

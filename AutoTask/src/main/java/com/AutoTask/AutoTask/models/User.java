@@ -1,9 +1,6 @@
 package com.AutoTask.AutoTask.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
@@ -17,9 +14,17 @@ public class User implements Serializable {
     private String password;
     private String phoneNum;
 //    private Schedule schedule;
+
+    @Column(name = "desk_skill")
     private int deskSkill;
+
+    @Column(name = "data_skill")
     private int dataSkill;
+
+    @Column(name = "net_skill")
     private int netSkill;
+
+    @Column(name = "mobile_skill")
     private int mobileSkill;
     private int role;
 

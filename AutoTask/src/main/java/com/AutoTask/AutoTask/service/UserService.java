@@ -17,4 +17,6 @@ public interface UserService {
     public User login(int id, String password) throws Exception;
 
     public int numOfTasks(int empId);
+    public List<User> getCapableResources(int categoryId);
+    public void updateUser(int empId, User editUser);
 }
