@@ -123,10 +123,10 @@ public class UserServiceImplementation implements UserService{
             user.setEmail(editUser.getEmail());
             user.setPassword(editUser.getPassword());
             user.setPhoneNum(editUser.getPhoneNum());
-            user.setDeskSkill(editUser.hasDeskSkill());
-            user.setDataSkill(editUser.hasDataSkill());
-            user.setNetSkill(editUser.hasNetSkill());
-            user.setMobileSkill(editUser.hasMobileSkill());
+            user.setDeskSkill(editUser.getDeskSkill());
+            user.setDataSkill(editUser.getDataSkill());
+            user.setNetSkill(editUser.getNetSkill());
+            user.setMobileSkill(editUser.getMobileSkill());
 
             saveUser(user);
         }

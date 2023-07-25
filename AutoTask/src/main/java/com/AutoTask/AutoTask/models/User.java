@@ -93,7 +93,12 @@ public class User implements Serializable {
 //        this.schedule = schedule;
 //    }
 
-    public int hasDeskSkill() {
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public int getDeskSkill() {
         return deskSkill;
     }
 
@@ -101,7 +106,7 @@ public class User implements Serializable {
         this.deskSkill = deskSkill;
     }
 
-    public int hasDataSkill() {
+    public int getDataSkill() {
         return dataSkill;
     }
 
@@ -109,7 +114,7 @@ public class User implements Serializable {
         this.dataSkill = dataSkill;
     }
 
-    public int hasNetSkill() {
+    public int getNetSkill() {
         return netSkill;
     }
 
@@ -117,7 +122,7 @@ public class User implements Serializable {
         this.netSkill = netSkill;
     }
 
-    public int hasMobileSkill() {
+    public int getMobileSkill() {
         return mobileSkill;
     }
 

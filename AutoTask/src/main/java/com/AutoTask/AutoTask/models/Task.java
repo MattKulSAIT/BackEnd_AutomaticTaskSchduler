@@ -1,9 +1,6 @@
 package com.AutoTask.AutoTask.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -22,6 +19,7 @@ public class Task {
     private int status;
     private double timeToComplete;
     private int category; //Kinda want to change this
+    @Column(name = "emp_id")
     private int empId;
     //How will we know when the task is set to be completed?????????
 

@@ -11,7 +11,11 @@ public interface TaskService {
 
     public Optional<Task> findByTaskNumber(int taskNumber);
 
+    public List<Task> getAllTaskAssignedToResource(int empId);
+
     public void resourceUpdateTask(int id, int status, int type, double time);
 
     public void adminUpdateTask(int id, int status, int type, double time, int empId);
+
+    public void completeTask(int id, int status, int type, double time);
 }

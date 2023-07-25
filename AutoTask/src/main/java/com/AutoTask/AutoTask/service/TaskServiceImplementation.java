@@ -1,10 +1,13 @@
 package com.AutoTask.AutoTask.service;
 
+import com.AutoTask.AutoTask.models.ArchivedTask;
 import com.AutoTask.AutoTask.models.Task;
+import com.AutoTask.AutoTask.repository.ArchivedTaskRepository;
 import com.AutoTask.AutoTask.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +18,9 @@ import java.util.Optional;
 public class TaskServiceImplementation implements TaskService{
     @Autowired
     private TaskRepository taskRepository;
+
+    @Autowired
+    private ArchivedTaskRepository archivedTaskRepository;
 
     /**
      * Method to save the task to the database
@@ -44,6 +50,17 @@ public class TaskServiceImplementation implements TaskService{
     public Optional<Task> findByTaskNumber(int taskNumber) {
         return taskRepository.findTaskByTaskNumber(taskNumber);
     }
+
+    /**
+     * Method to get all the tasks for one Resource
+     * @param empId the id of the employee
+     * @return List containing all tasks assigned to them
+     */
+    @Override
+    public List<Task> getAllTaskAssignedToResource(int empId) {
+        return taskRepository.findTaskByEmployeeId(empId);
+    }
+
 
     /**
      * The method for resources to update a tasks information
@@ -87,6 +104,36 @@ public class TaskServiceImplementation implements TaskService{
             task.setEmpId(empId);
 
             saveTask(task);
+        }
+    }
+
+    /**
+     * Method to archive a task once its been marked as complete
+     * @param id the unique id given to every task
+     * @param status the completion status of the task
+     * @param type the category of the task
+     * @param time the estimated time to complete
+     */
+    @Override
+    public void completeTask(int id, int status, int type, double time) {
+        Optional<Task> optionalTask = findByTaskNumber(id);
+        if(optionalTask.isPresent()){
+            Task completedTask = optionalTask.get();
+
+            ArchivedTask archivedTask = new ArchivedTask();
+            archivedTask.setTaskNumber(completedTask.getTaskNumber());
+            archivedTask.setCategory(completedTask.getCategory());
+            archivedTask.setCompletionDate(new Date());
+            archivedTask.setCreationDate(completedTask.getCreationDate());
+            archivedTask.setDescription(completedTask.getDescription());
+            archivedTask.setEmail(completedTask.getEmail());
+            archivedTask.setEmpId(completedTask.getEmpId());
+            archivedTask.setStatus(4);
+            archivedTask.setTitle(completedTask.getTitle());
+
+            archivedTaskRepository.save(archivedTask);
+
+            taskRepository.delete(completedTask);
         }
     }
 

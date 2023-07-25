@@ -63,7 +63,13 @@ public class TaskEditController {
                            @RequestParam("status") int status,
                            @RequestParam("type")int type,
                            @RequestParam("time")double time){
-        taskService.resourceUpdateTask(taskNumber,status,type,time);
+
+        if(status==4){
+            taskService.completeTask(taskNumber,status,type,time);
+        }
+        else {
+            taskService.resourceUpdateTask(taskNumber, status, type, time);
+        }
     }
 
     @PatchMapping(path = "/admin/{taskNumber}")
@@ -72,6 +78,11 @@ public class TaskEditController {
                                 @RequestParam("type")int type,
                                 @RequestParam("time")double time,
                                 @RequestParam("empId") int empId){
-        taskService.adminUpdateTask(taskNumber, status, type,time,empId);
+        if(status==4){
+            taskService.completeTask(taskNumber,status,type,time);
+        }
+        else {
+            taskService.adminUpdateTask(taskNumber, status, type, time, empId);
+        }
     }
 }

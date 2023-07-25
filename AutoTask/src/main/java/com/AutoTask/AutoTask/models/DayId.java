@@ -1,24 +1,30 @@
 package com.AutoTask.AutoTask.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
+
 @Embeddable
 public class DayId implements Serializable {
-    private Date date;
+    private LocalDate date;
+    @Column(name = "employeeid")
     private int employeeID;
 
-    public DayId(Date date, int employeeId) {
+    public DayId(LocalDate  date, int employeeID) {
         this.date = date;
-        this.employeeID = employeeId;
+        this.employeeID = employeeID;
     }
 
-    public Date getDate() {
+    public DayId(){}
+
+    public LocalDate  getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -29,8 +35,4 @@ public class DayId implements Serializable {
     public void setEmployeeID(int employeeID) {
         this.employeeID = employeeID;
     }
-
-
-
-
 }
