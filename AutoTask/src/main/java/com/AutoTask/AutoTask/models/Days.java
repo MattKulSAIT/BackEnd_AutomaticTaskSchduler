@@ -14,12 +14,12 @@ public class Days implements Serializable{
 
     @Column(name = "hours_available")
     private double hoursAvailable;
-    //@Column(name = "date")
-    //private java.sql.Date date; //I might have to set this equal to the ID date
+    private double setHours;
 
-    public Days(DayId id, double hours) {
+    public Days(DayId id, double hours, double setHours) {
         this.hoursAvailable = hours;
         this.id = id;
+        this.setHours = setHours;
     }
 
     public Days(){}
@@ -32,4 +32,13 @@ public class Days implements Serializable{
         this.hoursAvailable = hours;
     }
 
+    public double getSetHours() {
+        return setHours;
+    }
+
+    public void setSetHours(double setHours) {
+        this.setHours = setHours;
+    }
+
+    public DayId getId() {return id;}
 }

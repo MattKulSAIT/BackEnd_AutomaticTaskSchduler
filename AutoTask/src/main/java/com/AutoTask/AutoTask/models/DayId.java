@@ -9,22 +9,22 @@ import java.util.Date;
 
 @Embeddable
 public class DayId implements Serializable {
-    private LocalDate date;
+    private Date date;
     @Column(name = "employeeid")
     private int employeeID;
 
-    public DayId(LocalDate  date, int employeeID) {
+    public DayId(Date  date, int employeeID) {
         this.date = date;
         this.employeeID = employeeID;
     }
 
     public DayId(){}
 
-    public LocalDate  getDate() {
+    public Date  getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

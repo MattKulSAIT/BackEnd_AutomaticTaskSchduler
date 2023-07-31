@@ -1,6 +1,7 @@
 package com.AutoTask.AutoTask.controller;
 
 import com.AutoTask.AutoTask.models.Task;
+import com.AutoTask.AutoTask.service.ScheduleService;
 import com.AutoTask.AutoTask.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,12 @@ public class TaskCreateController {
     @Autowired
     private TaskService taskService;
 
+    @Autowired
+    private ScheduleService scheduleService;
+
     @PostMapping("")
     public void createTask(@RequestBody Task newTask){
         taskService.saveTask(newTask);
+        scheduleService.assignTask(newTask);
     }
 }

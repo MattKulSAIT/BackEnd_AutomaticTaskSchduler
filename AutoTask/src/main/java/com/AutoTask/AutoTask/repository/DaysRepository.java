@@ -8,15 +8,17 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
+import java.util.List;
 
 @Repository
 public interface DaysRepository extends JpaRepository<Days, DayId>{
-/*
-    @Query("SELECT d FROM Days d WHERE d.id.employeeId = :employeeId AND d.hoursAvailable >= :minHoursAvailable AND d.id.date = (SELECT MIN(d2.id.date) FROM Days d2 WHERE d2.id.employeeid = :employeeId AND d2.hoursAvailable >= :minHoursAvailable)")
-    Days findBestDay(int employeeId, double minHoursAvailable);
 
-    @Query("SELECT d FROM Days d WHERE d.id.employeeId = :employeeId AND d.id.date = :date")
-    Days findDay(DayId dayId);
-*/
+    @Query("SELECT d FROM Days d WHERE d.id.employeeID = :employeeID AND d.hoursAvailable >= :minHoursAvailable AND d.id.date = (SELECT MIN(d2.id.date) FROM Days d2 WHERE d2.id.employeeID = :employeeID AND d2.hoursAvailable >= :minHoursAvailable)")
+    Days findBestDay(int employeeID, double minHoursAvailable);
 
+    @Query("SELECT d FROM Days d WHERE d.id.employeeID = :employeeID AND d.id.date = :date")
+    Days findDay(int employeeID, Date date);
+
+    @Query("SELECT d FROM Days d WHERE d.id.employeeID = :employeeID")
+    List<Days> getAllDays(int employeeID);
 }
