@@ -3,6 +3,8 @@ package com.AutoTask.AutoTask.service;
 import com.AutoTask.AutoTask.models.Days;
 import com.AutoTask.AutoTask.models.Task;
 
+import java.sql.Date;
+
 public interface ScheduleService {
 
     public void assignTask(Task task);
@@ -18,4 +20,6 @@ public interface ScheduleService {
     public double getTotalHours(int empId);
 
     public double getWorkHours(int empId);
+
+    public void populateWeek(Date date, int empId, int hoursAvaible, int setHours);
 }

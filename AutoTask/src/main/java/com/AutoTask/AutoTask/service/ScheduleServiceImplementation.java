@@ -1,5 +1,6 @@
 package com.AutoTask.AutoTask.service;
 
+import com.AutoTask.AutoTask.models.DayId;
 import com.AutoTask.AutoTask.models.Days;
 import com.AutoTask.AutoTask.models.Task;
 import com.AutoTask.AutoTask.models.User;
@@ -8,6 +9,7 @@ import com.AutoTask.AutoTask.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -234,6 +236,17 @@ public class ScheduleServiceImplementation implements ScheduleService{
         return workingHours;
     }
 
+    @Override
+    public void populateWeek(java.sql.Date date, int empId, int hoursAvaible, int setHours) {
+        for(int i = 0; i<5; i++){
+            DayId id = new DayId(date, empId);
+            Days days = new Days(id, hoursAvaible, setHours);
+            daysRepository.save(days);
+            LocalDateTime ldt = date.toLocalDate().atStartOfDay();
+            ldt = ldt.plusDays(1);
+            date = java.sql.Date.valueOf(ldt.toLocalDate());
+        }
+    }
     //Methods still needed
     //Populate Next week
 
